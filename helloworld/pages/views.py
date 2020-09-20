@@ -4,7 +4,19 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return HttpResponse('Hello, world!')
+    context = {
+        'username': 'Stoica Mihai',
+        'section': {
+            'title': 'My first page'
+        },
+        'breakfast': [
+            'milk',
+            'coffee',
+            'bacon',
+            'egs'
+        ]
+    }
+    return render(request=request, template_name='home.html', context=context)
 
 
 def page1(request):
