@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{section.title}}</title>
-</head>
-<body>
-    <h1>Hello, {{username|upper}}</h1>
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block 'content' %}
+    {# Comment django #}
+    {% include 'username.html' %}
     <ol>
-        {% for item in breakfast%}         
-            <li>{{item}}</li>
-        {%endfor%}
+    {% for item in breakfast%}
+    <li>{{item}}</li>
+    {%endfor%}
     </ol>
-</body>
-</html>
+{% endblock %}

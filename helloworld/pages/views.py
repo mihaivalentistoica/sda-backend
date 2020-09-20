@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 
 # Create your views here.
+
 def home(request):
     context = {
         'username': 'Stoica Mihai',
@@ -20,8 +21,8 @@ def home(request):
 
 
 def page1(request):
-    return HttpResponse('Eu sunt pagina 1, bine ai venit!')
+    return render(request=request, template_name='page1.html')
 
 
 def page2(request):
-    return HttpResponse('Eu sunt a doua pagina.')
+    return render(request=request, template_name='page2.html')
