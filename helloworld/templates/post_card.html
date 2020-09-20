@@ -1,0 +1,18 @@
+<div class="col s12 m4">
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <a href="{% url 'blog:blog_post_details' post.id %}">
+        <img class="activator" src="{{ post.img_url }}" style="height: 350px" />
+      </a>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">
+        <a href="{% url 'blog:blog_post_details' post.id %}"> {{post.title}}</a>
+        <div class="right">{{post.created_date|date:'d m Y P'}}</div>
+      </span>
+      <p>
+        <a href="{% url 'blog:blog_post_details' post.id %}">View post</a>
+      </p>
+    </div>
+  </div>
+</div>

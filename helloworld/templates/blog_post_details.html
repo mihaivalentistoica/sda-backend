@@ -1,6 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block 'content' %}
 
-{% block 'content' %}
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
+<div class="container">
+  <h1>{{ post.title }}</h1>
+  <div
+    style="
+      height: 400px; 
+      width:100%; 
+      background-image: url({{post.img_url}}); 
+      background-position: center; 
+      background-repeat: no-repeat;
+      background-size: cover;"
+  ></div>
+  <h5>
+    Author: {{ post.author_name }} ( {{post.created_date|date:'d m Y P'}} )
+  </h5>
+  <p>{{post.body}}</p>
+  <br>
+  <h4>Comments</h4>
+  {% for comment in post.comments %} 
+    {% include "comment.html" with comment=comment %} 
+  {% endfor %}
+</div>
+
 {% endblock %}

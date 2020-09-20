@@ -1,20 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
 {% block 'content' %}
-<div class="row">
-    {% for post in blog_entries %}
-    <div class="col s12 m4">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title">{{ post.title }}</span>
-                <p>{{ post.body|truncatechars:10 }}</p>
-            </div>
-            <div class="card-action">
-                <a href="{% url 'blog:blog_post_details' post.id %}">View blog post</a>
-            </div>
-        </div>
 
-    </div>
-    {% endfor %}
+
+<h2>Latest posts</h2> <h5>{{latest_posts|length}} new post{{ latest_posts|length|pluralize }}</h5>
+<div class="row">
+  {% for new_post in latest_posts %}
+    {% include "post_card.html" with post=new_post %}
+  {% endfor %}
 </div>
+
+<h2>Oldest posts</h2> <h5>{{oldest_posts|length}} new post{{ oldest_posts|length|pluralize }}</h5>
+<div class="row">
+    {% for old_post in oldest_posts %}
+        {% include "post_card.html" with post=old_post %}
+    {% endfor %} 
+</div>
+
 {% endblock %}
